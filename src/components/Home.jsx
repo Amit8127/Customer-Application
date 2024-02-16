@@ -224,7 +224,7 @@ const Home = () => {
               <th>State</th>
               <th>Phone</th>
               <th>City</th>
-              <th>Actions</th>
+              <th style={{minWidth: '150px'}}>Actions</th>
             </tr>
           </thead>
           <tbody>

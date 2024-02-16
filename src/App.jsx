@@ -9,6 +9,7 @@ import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
 import CustomerForm from "./components/CustomerForm";
 
+
 function App() {
   return (
     <>
