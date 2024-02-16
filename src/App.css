@@ -1,0 +1,97 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  padding: 2em;
+  text-align: left;
+}
+
+.div {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #0000001a;
+}
+
+.table {
+  min-width: 930px !important;
+  border-collapse: collapse;
+  width: 100% !important;
+  margin: 20px 0;
+}
+
+.table th td {
+  max-width: 500px !important;
+  overflow-x: hidden !important;
+}
+
+.edit {
+  color: pink !important;;
+}
+
+.editable {
+  width: 100% !important;
+  color: black;
+  background-color: white;
+}
+
+.editable:focus {
+  outline: none;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  max-width: 150px;
+  overflow: scroll;
+}
+
+.table th {
+  background-color: #f2f2f2 !important;
+}
+
+.table tbody tr:hover {
+  background-color: #f5f5f5; 
+}
+
+.btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-danger:hover {
+  opacity: 0.9;
+}
+
