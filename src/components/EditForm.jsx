@@ -96,8 +96,8 @@ const EditForm = ({ customer, onSave, onCancel }) => {
           onChange={handleChange}
         />
       </td>
-      <td className="d-flex">
-        <button className="btn btn-outline-success me-2" onClick={handleSave}>
+      <td className="d-flex" style={{minWidth: '150px'}}>
+        <button className="btn btn-outline-success me-1" onClick={handleSave}>
           Save
         </button>
         <button className="btn btn-outline-danger" onClick={onCancel}>
