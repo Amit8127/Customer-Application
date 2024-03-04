@@ -1,8 +1,8 @@
 import axios from "axios";
 import { getJwtToken } from "../auth/auth";
 
-export const BaseURL = "http://customer-app-env.eba-zk7p4xbp.ap-south-1.elasticbeanstalk.com";
-// export const BaseURL = "http://localhost:8080"; //for testing purposes
+// export const BaseURL = "";
+export const BaseURL = "http://localhost:8080"; //for local testing purposes
 
 export const auth = axios.create({
   baseURL: BaseURL,

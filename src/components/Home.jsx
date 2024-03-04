@@ -8,7 +8,6 @@ import {
   deleteACustomerById,
   getAllCustomers,
   getCustomerPages,
-  getDataFromSunbase,
   updateACustomer,
 } from "./../services/adminService";
 import { toast } from "react-toastify";
@@ -29,15 +28,15 @@ const Home = () => {
 
   // Fetch the list of customers
   const fetchAllCustomers = async () => {
-    // try {
-    //   const response = await getAllCustomers();
-    //   // setCustomers(response);
-    // } catch (error) {
-    //   console.error("Error fetching customers:", error);
-    // }
+    try {
+      const response = await getAllCustomers();
+      // setCustomers(response);
+    } catch (error) {
+      console.error("Error fetching customers:", error);
+    }
   };
 
-  // Fetch the list of customers
+  // Fetch the list of customers in pages
   const fetchCustomerPages = async () => {
     try {
       const response = await getCustomerPages(
@@ -55,12 +54,12 @@ const Home = () => {
 
   // Fetch a single customer based on ID
   const fetchCustomerById = async (customerId) => {
-    // try {
-    //   const response = await axios.get(`/api/customers/${customerId}`);
-    //   setSelectedCustomer(response.data);
-    // } catch (error) {
-    //   console.error("Error fetching customer by ID:", error);
-    // }
+    try {
+      const response = await axios.get(`/api/customers/${customerId}`);
+      setSelectedCustomer(response.data);
+    } catch (error) {
+      console.error("Error fetching customer by ID:", error);
+    }
   };
 
   // Update an existing customer
@@ -96,28 +95,6 @@ const Home = () => {
     setEditId(null);
   };
 
-  // Fetch customers from sunbase database
-  const fetchcustomers = async () => {
-    try {
-      // Assume newCustomer contains updated information
-      // Reset form and refresh customer list
-      setLoading(true);
-      const responce = await getDataFromSunbase();
-      if (responce == "Data has been synced Successfully") {
-        toast.success(responce);
-        setLoading(false);
-      } else {
-        toast.error(responce);
-        setLoading(false);
-      }
-      fetchCustomerPages();
-      // fetchCustomers();
-    } catch (error) {
-      setLoading(false);
-      toast.error(error.message);
-      console.error("Error in fetching customer from sunbase:", error);
-    }
-  };
 
   // Delete a customer
   const deleteCustomer = async (customerId) => {
@@ -201,16 +178,6 @@ const Home = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="form-control"
         />
-        <button
-          style={{ width: "10%" }}
-          disabled={loading}
-          className="btn btn-outline-info"
-          onClick={() => {
-            fetchcustomers();
-          }}
-        >
-          Sync
-        </button>
       </div>
       {/* Customer List Table */}
       <div className="table-responsive-xl">

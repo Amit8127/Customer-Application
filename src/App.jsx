@@ -13,8 +13,7 @@ import CustomerForm from "./components/CustomerForm";
 function App() {
   return (
     <>
-      <ToastContainer />
-      <div className="container">
+      {/* <div className="container"> */}
         <Routes>
           <Route path="/" element={<SignupForm />} />
           <Route path="/login" element={<LoginPage />} />
@@ -23,7 +22,8 @@ function App() {
             <Route path="customerForm" element={<CustomerForm />} />
           </Route>
         </Routes>
-      </div>
+      {/* </div> */}
+      <ToastContainer />
     </>
   );
 }

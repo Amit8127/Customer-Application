@@ -18,15 +18,6 @@ export const login = async (formData) => {
   }
 };
 
-export const getDataFromSunbase = async () => {
-  try {
-    const response = await api.get(`/home/customer/getDataFromSunbase`);
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
 export const createACustomer = async (customerObj) => {
   try {
     const response = await api.post(

@@ -128,7 +128,7 @@ const SignupForm = () => {
             Confirm Password:
           </label>
           <input
-            type="password"
+            type="text"
             name="confirmPassword"
             value={formData.confirmPassword}
             onChange={handleChange}
