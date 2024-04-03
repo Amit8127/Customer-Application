@@ -83,7 +83,7 @@ const CustomerForm = () => {
 
   return (
     <>
-      <h2 className="text-center mt-4 mb-5">Customer Form</h2>
+      <h2 className="text-center mt-4 mb-5">Customer Details</h2>
       <div
         className="d-flex justify-content-center w-75"
         style={{ marginInline: "auto" }}

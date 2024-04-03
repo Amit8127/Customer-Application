@@ -54,18 +54,18 @@ const EditForm = ({ customer, onSave, onCancel }) => {
       <td>
         <input
           className="editable"
-          disabled={true}
           type="text"
-          name="email"
-          value={editedData.email}
+          name="address"
+          value={editedData.address}
+          onChange={handleChange}
         />
       </td>
       <td>
         <input
           className="editable"
           type="text"
-          name="address"
-          value={editedData.address}
+          name="city"
+          value={editedData.city}
           onChange={handleChange}
         />
       </td>
@@ -81,18 +81,18 @@ const EditForm = ({ customer, onSave, onCancel }) => {
       <td>
         <input
           className="editable"
-          type="number"
-          name="phone"
-          value={editedData.phone}
-          onChange={handleChange}
+          disabled={true}
+          type="text"
+          name="email"
+          value={editedData.email}
         />
       </td>
       <td>
         <input
           className="editable"
-          type="text"
-          name="city"
-          value={editedData.city}
+          type="number"
+          name="phone"
+          value={editedData.phone}
           onChange={handleChange}
         />
       </td>

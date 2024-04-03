@@ -18,6 +18,15 @@ export const login = async (formData) => {
   }
 };
 
+export const getDataFromSunbase = async () => {
+  try {
+    const response = await api.get(`/home/customer/getDataFromSunbase`);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+
 export const createACustomer = async (customerObj) => {
   try {
     const response = await api.post(
@@ -59,7 +68,7 @@ export const getCustomerPages = async (
 ) => {
   try {
     const response = await api.get("/home/customer/getCustomerPages", {
-      params: {pageNum, pageSize, direction, search,}
+      params: { pageNum, pageSize, direction, search },
       // params: {
       //   pageNum,
       //   pageSize,

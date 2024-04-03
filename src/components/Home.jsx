@@ -8,6 +8,7 @@ import {
   deleteACustomerById,
   getAllCustomers,
   getCustomerPages,
+  getDataFromSunbase,
   updateACustomer,
 } from "./../services/adminService";
 import { toast } from "react-toastify";
@@ -49,6 +50,29 @@ const Home = () => {
       console.log(response);
     } catch (error) {
       console.error("Error fetching customers:", error);
+    }
+  };
+
+  // Fetch customers from sunbase database
+  const fetchcustomers = async () => {
+    try {
+      // Assume newCustomer contains updated information
+      // Reset form and refresh customer list
+      setLoading(true);
+      const responce = await getDataFromSunbase();
+      if (responce == "Data has been synced Successfully") {
+        toast.success(responce);
+        setLoading(false);
+      } else {
+        toast.error(responce);
+        setLoading(false);
+      }
+      fetchCustomerPages();
+      // fetchCustomers();
+    } catch (error) {
+      setLoading(false);
+      toast.error(error.message);
+      console.error("Error in fetching customer from sunbase:", error);
     }
   };
 
@@ -94,7 +118,6 @@ const Home = () => {
   const handleCancelEdit = () => {
     setEditId(null);
   };
-
 
   // Delete a customer
   const deleteCustomer = async (customerId) => {
@@ -178,6 +201,16 @@ const Home = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="form-control"
         />
+        <button
+          style={{ width: "10%" }}
+          disabled={loading}
+          className="btn btn-outline-info"
+          onClick={() => {
+            fetchcustomers();
+          }}
+        >
+          Sync
+        </button>
       </div>
       {/* Customer List Table */}
       <div className="table-responsive-xl">
@@ -186,12 +219,12 @@ const Home = () => {
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
-              <th>Email</th>
               <th>Address</th>
-              <th>State</th>
-              <th>Phone</th>
               <th>City</th>
-              <th style={{minWidth: '150px'}}>Actions</th>
+              <th>State</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th style={{ minWidth: "150px" }}>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -208,11 +241,11 @@ const Home = () => {
                     <tr key={customer.id}>
                       <td>{customer.first_name}</td>
                       <td>{customer.last_name}</td>
-                      <td>{customer.email}</td>
                       <td>{customer.address}</td>
-                      <td>{customer.state}</td>
-                      <td>{customer.phone}</td>
                       <td>{customer.city}</td>
+                      <td>{customer.state}</td>
+                      <td>{customer.email}</td>
+                      <td>{customer.phone}</td>
                       <td>
                         <button
                           className="btn btn-primary me-2"
